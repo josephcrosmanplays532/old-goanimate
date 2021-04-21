@@ -64,7 +64,7 @@ module.exports = (voiceName, text) => {
 			}
 			case "cepstral":
 			case "voiceforge": {
-				https.get("https://www.voiceforge.com/demo", (r) => {
+				https.get("https://api.voiceforge.com/", (r) => {
 					const cookie = r.headers["set-cookie"];
 					var q = qs.encode({
 						voice: voice.arg,
@@ -73,7 +73,7 @@ module.exports = (voiceName, text) => {
 					var buffers = [];
 					https.get(
 						{
-							host: "www.voiceforge.com",
+							host: "api.voiceforge.com",
 							path: `/demos/createAudio.php?${q}`,
 							headers: { Cookie: cookie },
 						},
