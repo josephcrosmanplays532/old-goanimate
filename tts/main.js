@@ -84,7 +84,7 @@ module.exports = (voiceName, text) => {
 								const beg = html.indexOf('id="mp3Source" src="') + 20;
 								const end = html.indexOf('"', beg);
 								const loc = html.subarray(beg, end).toString();
-								get(`https://www.voiceforge.com${loc}`).then(res).catch(rej);
+								get(`https://api.voiceforge.com${loc}`).then(res).catch(rej);
 							});
 						}
 					);
